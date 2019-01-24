@@ -1,0 +1,26 @@
+<html>
+<head>
+<script>
+function rot13(str) {
+  var input     = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  var output    = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+  var index     = x => input.indexOf(x);
+  var translate = x => index(x) > -1 ? output[index(x)] : x;
+  return str.split('').map(translate).join('');
+}
+
+function decrypt_me() {
+	var text = document.getElementById("encrypted_text").innerHTML;
+	document.getElementById("encrypted_text").innerHTML = rot13(text);
+}
+</script>
+<style>
+	#click_preamble { font-family: Helvetica; font-size: 2em; margin: 50px auto 0 auto; width: 60%; min-width: 500px; }
+	#encrypted_text { font-family: Helvetica; font-size: 2em; margin: 50px auto 0 auto; width: 60%; min-width: 500px; border: 1px solid #666666; padding: 5px; }
+</style>
+</head>
+<body>
+	<div id="click_preamble">Click on the box below to reveal the poem</div>
+	<div id="encrypted_text" onclick="javascript:decrypt_me();">N yvggyr yrneavat vf n qnatrebhf guvat / Qevax qrrc, be gnfgr abg gur fcevat / Gurer funyybj qenhtugf vagbkvpngr gur oenva, / Naq qevaxvat ynetryl fboref hf ntnva</div>
+</body>
+</html>
